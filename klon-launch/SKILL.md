@@ -1,5 +1,5 @@
 ---
-name: replica-launch
+name: klon-launch
 description: >-
   Writes the launch for an app clone: the landing page built on the
   positioning angle, pricing set against the original's public pricing and
@@ -7,17 +7,17 @@ description: >-
   against the stores' limits and copycat rules. Use when the user says
   "landing page", "pricing", "how much should I charge", "App Store
   listing", "store screenshots", "launch plan", "Product Hunt", or after
-  /replica-brand.
+  /klon-brand.
 ---
 
-# replica-launch
+# klon-launch
 
-Reads `replica/fixes.md` (the angle and the evidence), `replica/brand.md`,
-and `replica/brand.json`. Writes `replica/launch/`: `landing.md`,
+Reads `klon/fixes.md` (the angle and the evidence), `klon/brand.md`,
+and `klon/brand.json`. Writes `klon/launch/`: `landing.md`,
 `pricing.md`, `listing.json`, `launch-plan.md`.
 
 ```bash
-python3 listing.py replica/launch/listing.json      # limits, claims, the original's name
+python3 listing.py klon/launch/listing.json      # limits, claims, the original's name
 ```
 
 Start from `listing.example.json` in this folder.
@@ -47,7 +47,7 @@ Start from `listing.example.json` in this folder.
    tools?" if you built an importer.
 7. **Final call to action.**
 
-Copy in the brand voice. Run replica-design's contrast check on the page.
+Copy in the brand voice. Run klon-design's contrast check on the page.
 
 ## Step 2: pricing
 
@@ -68,7 +68,7 @@ Copy in the brand voice. Run replica-design's contrast check on the page.
 Fill `listing.json`, then:
 
 ```bash
-python3 listing.py replica/launch/listing.json
+python3 listing.py klon/launch/listing.json
 ```
 
 It checks App Store limits (name 30, subtitle 30, promotional text 170,
@@ -96,5 +96,5 @@ leads with the fix, and the first 10 users to talk to by hand.
 
 ## Output
 
-`replica/launch/` complete, the landing page built, `listing.py` passing.
-Next: `/replica-deploy`.
+`klon/launch/` complete, the landing page built, `listing.py` passing.
+Next: `/klon-deploy`.

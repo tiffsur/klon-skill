@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Feedback ranker for replica-entrepreneur. Standard library only.
+"""Feedback ranker for klon-entrepreneur. Standard library only.
 
 Takes the real reviews you collected about the app you are cloning and ranks
 what its users hate and what they keep asking for, with the exact words and a
 link for every claim.
 
-    python3 reviews.py replica/reviews.csv
-    python3 reviews.py replica/reviews.csv --out replica/feedback.md
-    python3 reviews.py replica/reviews.csv --json
-    python3 reviews.py replica/reviews.csv --themes my-themes.json
+    python3 reviews.py klon/reviews.csv
+    python3 reviews.py klon/reviews.csv --out klon/feedback.md
+    python3 reviews.py klon/reviews.csv --json
+    python3 reviews.py klon/reviews.csv --themes my-themes.json
 
 The CSV needs these columns (extra columns are ignored):
 

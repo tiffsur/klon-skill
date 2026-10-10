@@ -1,5 +1,5 @@
 ---
-name: replica-design
+name: klon-design
 description: >-
   Rebuilds an app's design system for a clone: colour roles, type scale,
   spacing, radius, shadows and every component with its states, as design
@@ -7,17 +7,17 @@ description: >-
   logos, icons, illustrations or licensed fonts. Includes a WCAG contrast
   checker. Use when the user says "match the design", "rebuild the design
   system", "get the colours and fonts", "make it look like X", "design tokens
-  for my clone", or after /replica-architect.
+  for my clone", or after /klon-architect.
 ---
 
-# replica-design
+# klon-design
 
-Reads `replica/recon.md` and the screenshots in `replica/screens/`. Writes
-`replica/design/tokens.json` (template in this folder), `tokens.css`, the
-Tailwind mapping, and `replica/design/components.md`.
+Reads `klon/recon.md` and the screenshots in `klon/screens/`. Writes
+`klon/design/tokens.json` (template in this folder), `tokens.css`, the
+Tailwind mapping, and `klon/design/components.md`.
 
 ```bash
-python3 contrast.py replica/design/tokens.json     # every text pair, WCAG ratio
+python3 contrast.py klon/design/tokens.json     # every text pair, WCAG ratio
 ```
 
 ## The rules
@@ -33,7 +33,7 @@ What you never take:
   an open one with the same job: Inter, Geist, IBM Plex, Manrope, Source Serif.
 - **Their copy.** Every label and empty state gets written fresh.
 - **Their brand colour.** Record it as a role (`accent`), use a neutral
-  placeholder now, and replica-brand gives you your own. The signature colour
+  placeholder now, and klon-brand gives you your own. The signature colour
   plus the signature layout is trade dress, and it changes before launch.
 
 ## Step 1: measure, do not guess
@@ -52,7 +52,7 @@ From the screenshots (zoom in, use a colour picker on the user's machine):
 
 ## Step 2: write the tokens
 
-Fill `tokens.json`. Keep the role names. replica-brand only changes values.
+Fill `tokens.json`. Keep the role names. klon-brand only changes values.
 Generate `tokens.css` as custom properties and map them into Tailwind's theme
 so components use `bg-surface text-muted`, never raw hex.
 
@@ -60,7 +60,7 @@ Add a `pairs` list for every text and background combination the app uses,
 then:
 
 ```bash
-python3 contrast.py replica/design/tokens.json
+python3 contrast.py klon/design/tokens.json
 ```
 
 AA is the floor: 4.5:1 for body text, 3:1 for large text and for input
@@ -96,4 +96,4 @@ check.
 
 `tokens.json`, `tokens.css`, the Tailwind config, `components.md`, the
 primitives built, and a contrast report with zero AA failures. Next:
-`/replica-build`.
+`/klon-build`.

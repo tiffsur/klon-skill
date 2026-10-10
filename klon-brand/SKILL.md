@@ -1,5 +1,5 @@
 ---
-name: replica-brand
+name: klon-brand
 description: >-
   Names and rebrands an app clone so it is the user's own: name candidates
   with the trademark, domain, store and handle checks to run, a new palette
@@ -7,10 +7,10 @@ description: >-
   finds anything of the original left in the codebase. Use when the user says
   "name my app", "rebrand the clone", "make it mine", "pick a name and
   colours", "logo brief", "brand voice", "check for leftovers", or after
-  /replica-entrepreneur. Always runs before /replica-launch.
+  /klon-entrepreneur. Always runs before /klon-launch.
 ---
 
-# replica-brand
+# klon-brand
 
 Nothing launches under the original's identity. This skill is the line
 between "a clone" and "your app".
@@ -19,15 +19,15 @@ Tool in this folder:
 
 ```bash
 python3 sweep.py . --avoid "Original Name,Its Company" --domains original.com --colors "#006bff"
-python3 sweep.py . --config replica/brand.json        # same, from the brand file
+python3 sweep.py . --config klon/brand.json        # same, from the brand file
 ```
 
-Writes `replica/brand.md` and `replica/brand.json` (`avoid`, `domains`,
-`colors`, used by `sweep.py`, `listing.py` and replica-deploy).
+Writes `klon/brand.md` and `klon/brand.json` (`avoid`, `domains`,
+`colors`, used by `sweep.py`, `listing.py` and klon-deploy).
 
 ## Step 1: the name
 
-Read the angle from `replica/fixes.md`. Generate 20 candidates across styles:
+Read the angle from `klon/fixes.md`. Generate 20 candidates across styles:
 descriptive (Booklink), compound (Slotwise), invented (Calvo), metaphor
 (Harbor), verb (Book). Then cut to 5 with these filters:
 
@@ -58,12 +58,12 @@ the name, a trademark lawyer should do a proper search.
 
 ## Step 3: palette
 
-A new palette, written into the same token roles replica-design set up.
+A new palette, written into the same token roles klon-design set up.
 Pick a primary brand hue from a different family than the original's (if
 theirs is blue, yours is not a nearby blue). Then:
 
 ```bash
-python3 ../replica-design/contrast.py replica/design/tokens.json
+python3 ../klon-design/contrast.py klon/design/tokens.json
 ```
 
 Zero AA failures. Add the original's brand colours to `brand.json` so the
@@ -94,17 +94,17 @@ error) in that voice. All fresh, none echoing the original's phrasing.
 Replace every placeholder name, colour and string. Then:
 
 ```bash
-python3 sweep.py . --config replica/brand.json
+python3 sweep.py . --config klon/brand.json
 ```
 
 It searches file contents and file names for the original's name (also inside
 identifiers like `CalendlyEmbed`), domains and colours, skipping
-`node_modules`, build output and the `replica/` planning folder. Exit 1 means
+`node_modules`, build output and the `klon/` planning folder. Exit 1 means
 something is left. Fix until it says clean. Also check by eye: the favicon,
 the page titles, the email templates, the OG image, the app icon.
 
 ## Output
 
-`replica/brand.md` (name with checks, palette, logo brief, voice),
-`replica/brand.json`, updated tokens, rewritten strings, and a clean sweep.
-Next: `/replica-launch`.
+`klon/brand.md` (name with checks, palette, logo brief, voice),
+`klon/brand.json`, updated tokens, rewritten strings, and a clean sweep.
+Next: `/klon-launch`.

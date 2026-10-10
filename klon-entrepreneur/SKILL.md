@@ -1,5 +1,5 @@
 ---
-name: replica-entrepreneur
+name: klon-entrepreneur
 description: >-
   Researches the app being cloned and reads what its real users say in public
   reviews (App Store, Google Play, G2, Capterra, Trustpilot, Reddit, Hacker
@@ -8,10 +8,10 @@ description: >-
   positioning angle you can sell. Every quote is real, verbatim and linked.
   Use when the user says "what do people hate about X", "read the reviews",
   "how do I make mine better", "find the gap", "what features are missing",
-  "how do I position this", "make it sellable", or after /replica-diff.
+  "how do I position this", "make it sellable", or after /klon-diff.
 ---
 
-# replica-entrepreneur
+# klon-entrepreneur
 
 A straight copy of an app has no reason to exist. This skill finds the reason:
 what the original's users hate, in their own words, and fixes it in yours.
@@ -19,7 +19,7 @@ what the original's users hate, in their own words, and fixes it in yours.
 Tool in this folder:
 
 ```bash
-python3 reviews.py replica/reviews.csv --out replica/feedback.md
+python3 reviews.py klon/reviews.csv --out klon/feedback.md
 ```
 
 ## The rules, which are not negotiable
@@ -55,14 +55,14 @@ Aim for 100+ reviews across at least three sources, recent first:
 | the original's own board | its public roadmap or feature-request board (Canny and similar) and the vote counts |
 | its changelog | what it shipped, so you do not "fix" what is already fixed |
 
-Each row in `replica/reviews.csv`: `source,url,date,rating,text`, text copied
+Each row in `klon/reviews.csv`: `source,url,date,rating,text`, text copied
 exactly. Read the 3 and 4 star reviews too. "Love it, but..." is where the
 best fixes hide.
 
 ## Step 2: rank
 
 ```bash
-python3 reviews.py replica/reviews.csv --out replica/feedback.md
+python3 reviews.py klon/reviews.csv --out klon/feedback.md
 ```
 
 It sorts reviews into themes (`themes.json`, edit it for the app's category),
@@ -88,8 +88,8 @@ a trend.
 
 Pick the top 5 to 8 by evidence times how cheaply you can fix them. For each:
 what to build or change, size (S, M, L), which skill does it, and the
-evidence. Add each one to `replica/features.csv` as a row with `original` set
-to `no`. Pricing and billing complaints go to `/replica-launch`.
+evidence. Add each one to `klon/features.csv` as a row with `original` set
+to `no`. Pricing and billing complaints go to `/klon-launch`.
 
 ## Step 5: the angle
 
@@ -101,12 +101,12 @@ For {{who}} who {{hate this about the original, in plain words}},
 Evidence: {{theme}}, {{n}} reviews across {{n}} sources.
 ```
 
-Recommend one. It drives replica-brand's name and voice and replica-launch's
+Recommend one. It drives klon-brand's name and voice and klon-launch's
 hero. Do not put the original's name in your app name, ads or store listing.
 A factual comparison page is a legal question for a lawyer in your country.
 
 ## Output
 
-`replica/reviews.csv`, `replica/feedback.md`, `replica/fixes.md` (three
+`klon/reviews.csv`, `klon/feedback.md`, `klon/fixes.md` (three
 lists, fix plan, angle), new rows in `features.csv`, and a summary that
-states the sample size. Next: `/replica-brand`.
+states the sample size. Next: `/klon-brand`.

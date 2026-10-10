@@ -17,7 +17,7 @@
 Tables: {{n}}. Access rules: {{RLS | data-layer checks}}.
 
 ```sql
--- or see replica/schema.sql
+-- or see klon/schema.sql
 ```
 
 ## API
@@ -39,4 +39,4 @@ Jobs: {{name, schedule, what it does}}
 1. Vertical slice: {{screens, tables, routes}}
 2. Must-haves:
 3. Should-haves:
-4. Fixes from replica-entrepreneur:
+4. Fixes from klon-entrepreneur:

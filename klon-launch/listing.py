@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Store listing linter for replica-launch. Standard library only.
+"""Store listing linter for klon-launch. Standard library only.
 
 Checks an App Store and Google Play listing against the stores' field limits
 and the mistakes that get a clone rejected: the original app's name in your
 metadata, ranking claims in the title, wasted keyword characters.
 
-    python3 listing.py replica/launch/listing.json
+    python3 listing.py klon/launch/listing.json
     python3 listing.py listing.json --avoid "Calendly,Acuity Scheduling"
     python3 listing.py listing.json --json
 

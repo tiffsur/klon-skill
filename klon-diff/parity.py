@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Feature parity score for replica-diff. Standard library only.
+"""Feature parity score for klon-diff. Standard library only.
 
-Reads the feature matrix that replica-recon wrote and you have been filling in
+Reads the feature matrix that klon-recon wrote and you have been filling in
 while you build, and tells you how much of the original your clone does, what
 is missing, and in what order to build it.
 
-    python3 parity.py replica/features.csv
-    python3 parity.py replica/features.csv --visual diffs/*.json
-    python3 parity.py replica/features.csv --markdown > replica/parity.md
-    python3 parity.py replica/features.csv --fail-under 80
+    python3 parity.py klon/features.csv
+    python3 parity.py klon/features.csv --visual diffs/*.json
+    python3 parity.py klon/features.csv --markdown > klon/parity.md
+    python3 parity.py klon/features.csv --fail-under 80
 
 The CSV has these columns (extra columns are ignored):
 

@@ -1,5 +1,5 @@
 ---
-name: replica-deploy
+name: klon-deploy
 description: >-
   Ships an app clone live on the user's own domain: a preflight gate (tests
   green, parity must-haves done, rebrand sweep clean, listing linted, legal
@@ -7,12 +7,12 @@ description: >-
   domain and for email, Stripe live mode, OAuth redirects, monitoring, and
   mobile builds to TestFlight and Play. Use when the user says "deploy it",
   "ship it", "put it live", "connect my domain", "go to production",
-  "publish the app", or after /replica-launch.
+  "publish the app", or after /klon-launch.
 ---
 
-# replica-deploy
+# klon-deploy
 
-Reads everything in `replica/`. Writes `replica/deploy.md` (the checklist in
+Reads everything in `klon/`. Writes `klon/deploy.md` (the checklist in
 `preflight.md` in this folder, filled in).
 
 ## The rules
@@ -29,15 +29,15 @@ Reads everything in `replica/`. Writes `replica/deploy.md` (the checklist in
 Run every check and paste the results into `deploy.md`:
 
 ```bash
-npx playwright test                                                  # replica-test
-python3 ../replica-diff/parity.py replica/features.csv               # must-haves done
-python3 ../replica-brand/sweep.py . --config replica/brand.json      # exit 0: clean
-python3 ../replica-launch/listing.py replica/launch/listing.json     # if shipping to stores
+npx playwright test                                                  # klon-test
+python3 ../klon-diff/parity.py klon/features.csv               # must-haves done
+python3 ../klon-brand/sweep.py . --config klon/brand.json      # exit 0: clean
+python3 ../klon-launch/listing.py klon/launch/listing.json     # if shipping to stores
 npm run build                                                        # production build passes
 ```
 
 (Paths are relative to wherever the pack is installed. Under
-`~/.claude/skills/` that is `~/.claude/skills/replica-diff/parity.py` and so
+`~/.claude/skills/` that is `~/.claude/skills/klon-diff/parity.py` and so
 on.)
 
 Plus by hand: no open S1 or S2 bugs, privacy policy and terms pages live
@@ -95,10 +95,10 @@ flow on the live site yourself, and ask the user to do it on their phone.
 Expo: `eas build` then `eas submit` to TestFlight and Play internal testing.
 Native: archive in Xcode, upload to App Store Connect; Gradle bundle to Play
 Console. The user owns the developer accounts ($99 a year for Apple, $25 once
-for Google). Beta first, then review with the listing from replica-launch.
+for Google). Beta first, then review with the listing from klon-launch.
 
 ## Output
 
-`replica/deploy.md` with every check and its result, the live URL, the DNS
+`klon/deploy.md` with every check and its result, the live URL, the DNS
 records set, and what to watch in the first week. The clone is now an app
 with your name on it.

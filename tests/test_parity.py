@@ -7,7 +7,7 @@ from contextlib import redirect_stdout, redirect_stderr
 
 from _load import load, ROOT
 
-parity = load("replica-diff", "parity")
+parity = load("klon-diff", "parity")
 
 MATRIX = """feature,area,priority,original,clone,notes
 Pick a time slot,booking page,must,yes,yes,
@@ -96,7 +96,7 @@ class Score(unittest.TestCase):
             self.assertEqual(parity.main([self.path, "--fail-under", "10"]), 0)
 
     def test_shipped_template_parses(self):
-        path = os.path.join(ROOT, "replica-recon", "features.csv")
+        path = os.path.join(ROOT, "klon-recon", "features.csv")
         r = parity.score(parity.load(path))
         self.assertGreater(r["counted"], 0)
         self.assertEqual(r["problems"], [])

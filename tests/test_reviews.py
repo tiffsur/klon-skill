@@ -9,7 +9,7 @@ from contextlib import redirect_stdout, redirect_stderr
 
 from _load import load
 
-reviews = load("replica-entrepreneur", "reviews")
+reviews = load("klon-entrepreneur", "reviews")
 
 ROWS = [
     ("app-store", "https://apps.apple.com/r/1", "2026-08-01", "1",

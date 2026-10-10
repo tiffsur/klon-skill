@@ -9,7 +9,7 @@ from contextlib import redirect_stdout, redirect_stderr
 
 from _load import load
 
-imgdiff = load("replica-diff", "imgdiff")
+imgdiff = load("klon-diff", "imgdiff")
 
 
 def canvas(w, h, colour=(255, 255, 255)):

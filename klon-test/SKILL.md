@@ -1,19 +1,19 @@
 ---
-name: replica-test
+name: klon-test
 description: >-
   Clicks through every flow of an app clone and tests it for bugs: a test plan
   generated from the recon flows with happy paths and edge cases, Playwright
   end-to-end tests where possible, a browser click-through where not, and bug
   reports in a fixed format with severity, steps and evidence. Use when the
   user says "test my clone", "find bugs", "QA this", "click through
-  everything", "write e2e tests", "does it work", or after /replica-build or
-  /replica-backend.
+  everything", "write e2e tests", "does it work", or after /klon-build or
+  /klon-backend.
 ---
 
-# replica-test
+# klon-test
 
-Reads the flows in `replica/recon.md`. Writes `replica/test-plan.md`,
-`replica/bugs.md`, and end-to-end tests in the project (`e2e/`). Templates in
+Reads the flows in `klon/recon.md`. Writes `klon/test-plan.md`,
+`klon/bugs.md`, and end-to-end tests in the project (`e2e/`). Templates in
 this folder: `test-plan.md`, `bug-report.md`, `e2e.example.spec.ts`.
 
 ## The rule
@@ -61,7 +61,7 @@ give the user the checklist and wait for answers.
 
 ## Step 4: report bugs
 
-Every bug goes in `replica/bugs.md` in the `bug-report.md` format: an ID, a
+Every bug goes in `klon/bugs.md` in the `bug-report.md` format: an ID, a
 severity, exact steps, expected, actual, evidence. Severity:
 
 | | means |
@@ -84,4 +84,4 @@ it pass, keep the test. Re-run the whole suite after each batch. Update
 
 `test-plan.md`, the specs, `bugs.md`, and a summary: cases run, passed,
 failed, bugs by severity, fixed so far. Ship nothing with an open S1. Next:
-`/replica-diff`.
+`/klon-diff`.

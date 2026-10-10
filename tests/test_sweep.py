@@ -7,7 +7,7 @@ from contextlib import redirect_stdout, redirect_stderr
 
 from _load import load
 
-sweep = load("replica-brand", "sweep")
+sweep = load("klon-brand", "sweep")
 
 
 def put(root, rel, text, binary=False):
@@ -29,7 +29,7 @@ class Sweep(unittest.TestCase):
         put(r, "src/styles/tokens.css", ":root { --accent: #006BFF; --bg: #fff; }\n")
         put(r, "src/lib/links.ts", "const help = 'https://help.calendly.com/x'\n")
         put(r, "src/lib/team.ts", "export const AcuitySchedulingSync = 1\n")
-        put(r, "replica/recon.md", "# Recon: Calendly\n")
+        put(r, "klon/recon.md", "# Recon: Calendly\n")
         put(r, "node_modules/x/index.js", "calendly\n")
         put(r, "public/logo.png", b"\x89PNG\0calendly", binary=True)
         put(r, "package-lock.json", '{"calendly": 1}\n')
@@ -52,15 +52,15 @@ class Sweep(unittest.TestCase):
 
     def test_skips_planning_folder_deps_locks_and_binaries(self):
         files = {h["file"] for h in self.run_sweep()}
-        self.assertFalse(any(f.startswith("replica") for f in files))
+        self.assertFalse(any(f.startswith("klon") for f in files))
         self.assertFalse(any("node_modules" in f for f in files))
         self.assertNotIn("package-lock.json", files)
         self.assertNotIn(os.path.join("public", "logo.png"), files)
         self.assertNotIn(os.path.join("src", "app", "page.tsx"), files)
 
-    def test_include_replica(self):
-        files = {h["file"] for h in self.run_sweep(include_replica=True)}
-        self.assertIn(os.path.join("replica", "recon.md"), files)
+    def test_include_klon(self):
+        files = {h["file"] for h in self.run_sweep(include_klon=True)}
+        self.assertIn(os.path.join("klon", "recon.md"), files)
 
     def test_short_hex_matches_long(self):
         put(self.root, "src/a.css", "a { color: #06f }\n")

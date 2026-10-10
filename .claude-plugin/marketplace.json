@@ -1,18 +1,18 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "replica-skill",
-  "description": "The Replica skill pack for Claude",
+  "name": "klon-skill",
+  "description": "The Klon skill pack for Claude",
   "owner": {
     "name": "tiffsur",
     "url": "https://github.com/tiffsur"
   },
   "plugins": [
     {
-      "name": "replica-skill",
+      "name": "klon-skill",
       "description": "Eleven Claude skills that clone any app: recon, architecture, design, build, backend, test, parity diff, a review-reading Entrepreneur skill, brand, launch and deploy.",
       "source": "./",
       "category": "productivity",
-      "homepage": "https://github.com/tiffsur/replica-skill"
+      "homepage": "https://github.com/tiffsur/klon-skill"
     }
   ]
 }

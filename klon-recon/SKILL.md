@@ -1,16 +1,16 @@
 ---
-name: replica-recon
+name: klon-recon
 description: >-
   Reverse-engineers any app into a recon map: screen inventory, user flows,
   component list, inferred data model and a feature matrix, from public pages,
   screenshots, app store listings, help docs and the user's own account. The
-  first step of the Replica pack. Use when the user says "clone this app",
+  first step of the Klon pack. Use when the user says "clone this app",
   "reverse engineer X", "how does X work", "map out X", "what screens does X
   have", "I want to build my own version of X", "copy this app", or pastes an
   app's URL or App Store link and wants to rebuild it.
 ---
 
-# replica-recon
+# klon-recon
 
 Everything else in the pack builds from what this skill writes. A bad recon
 map means a bad clone, so take the time here.
@@ -18,9 +18,9 @@ map means a bad clone, so take the time here.
 Output goes in the user's project:
 
 ```
-replica/recon.md        the recon map (template: recon-map.md in this folder)
-replica/features.csv    the feature matrix (template: features.csv in this folder)
-replica/screens/        reference screenshots of the original. Never shipped.
+klon/recon.md        the recon map (template: recon-map.md in this folder)
+klon/features.csv    the feature matrix (template: features.csv in this folder)
+klon/screens/        reference screenshots of the original. Never shipped.
 ```
 
 ## The rules, before anything else
@@ -41,7 +41,7 @@ anything the app owns.
 - **Check the terms.** Some products' terms forbid using an account to build a
   competing product. If the user's account is under terms like that, say so
   and work from public sources only.
-- **Screenshots are reference.** They live in `replica/screens/`, are used to
+- **Screenshots are reference.** They live in `klon/screens/`, are used to
   compare layouts, and never go into the clone.
 
 ## Step 1: scope
@@ -93,7 +93,7 @@ Count the clicks on the happy path. It becomes the number to beat.
 
 Every repeated UI part: buttons, inputs, date pickers, modals, tables, toasts,
 nav. Name, variants, states, which screens use it. This becomes
-replica-design's component list.
+klon-design's component list.
 
 ## Step 6: inferred data model
 
@@ -106,13 +106,13 @@ Booking  id, event_type_id, start_at, end_at, guest_name, guest_email,
          confidence: high
 ```
 
-Mark guesses as guesses. replica-architect turns this into a real schema.
+Mark guesses as guesses. klon-architect turns this into a real schema.
 
 ## Step 7: feature matrix
 
-Write `replica/features.csv` (columns: feature, area, priority, original,
+Write `klon/features.csv` (columns: feature, area, priority, original,
 clone, notes). Priority is must / should / could. `clone` starts at `no` for
-every row and gets filled in during the build. replica-diff scores it.
+every row and gets filled in during the build. klon-diff scores it.
 
 ## Step 8: what cannot be cloned
 
@@ -129,6 +129,6 @@ few weeks), L (a quarter), XL (rescope it). No promises of a perfect clone.
 
 ## Output
 
-`replica/recon.md` and `replica/features.csv`, then a five-line summary: the
+`klon/recon.md` and `klon/features.csv`, then a five-line summary: the
 core loop, screen and flow counts, the three hardest parts, what is out of
-scope, and the next step: `/replica-architect`.
+scope, and the next step: `/klon-architect`.

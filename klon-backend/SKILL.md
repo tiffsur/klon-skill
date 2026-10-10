@@ -1,18 +1,18 @@
 ---
-name: replica-backend
+name: klon-backend
 description: >-
   Builds the backend of an app clone: auth, database migrations and access
   rules, payments with Stripe, email, background jobs and third-party
   integrations through official APIs only, plus a security checklist. Use when
   the user says "add login", "set up auth", "wire up the database", "add
   payments", "connect Stripe", "add Google Calendar", "send emails",
-  "backend for my clone", or when /replica-build is running on fake data.
+  "backend for my clone", or when /klon-build is running on fake data.
 ---
 
-# replica-backend
+# klon-backend
 
-Reads `replica/architecture.md`. Writes migrations and server code, and keeps
-`replica/backend.md` (checklist below) up to date.
+Reads `klon/architecture.md`. Writes migrations and server code, and keeps
+`klon/backend.md` (checklist below) up to date.
 
 ## The rules
 
@@ -23,7 +23,7 @@ Reads `replica/architecture.md`. Writes migrations and server code, and keeps
   never types a password, card or live key. The user creates the Stripe,
   Supabase, Resend or Google Cloud project and puts keys in `.env.local`.
   Claude writes `.env.example` with every variable name and no values.
-- **Test mode first.** Stripe test keys and test cards until replica-deploy.
+- **Test mode first.** Stripe test keys and test cards until klon-deploy.
 
 ## Auth
 
@@ -86,5 +86,5 @@ launch, which takes weeks. Start it early and write that in `backend.md`.
 ## Output
 
 Working auth, database, payments in test mode, email and the integrations,
-`.env.example`, `replica/backend.md` with the checklist ticked, feature
-matrix rows updated. Next: `/replica-test`.
+`.env.example`, `klon/backend.md` with the checklist ticked, feature
+matrix rows updated. Next: `/klon-test`.

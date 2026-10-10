@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Screenshot diff for replica-diff. Standard library only.
+"""Screenshot diff for klon-diff. Standard library only.
 
 Compares a screenshot of the original app with the same screen in your clone
 and tells you how close the layout is and where it differs.

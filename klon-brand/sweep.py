@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebrand sweep for replica-brand and replica-deploy. Standard library only.
+"""Rebrand sweep for klon-brand and klon-deploy. Standard library only.
 
 Searches your clone's codebase for anything that still belongs to the original
 app: its name, its domain, its brand colours. Run it before every launch. It
@@ -8,7 +8,7 @@ exits 1 if it finds anything, so it can block a deploy.
     python3 sweep.py . --avoid "Calendly"
     python3 sweep.py . --avoid "Calendly,Calendly LLC" --domains calendly.com \\
         --colors "#006bff,#0ae8f0"
-    python3 sweep.py . --config replica/brand.json --json
+    python3 sweep.py . --config klon/brand.json --json
 
 --config reads {"avoid": [...], "domains": [...], "colors": [...]}, the same
 "avoid" list listing.py uses.
@@ -19,8 +19,8 @@ case and in short form (#06f matches #0066ff). File and folder names are
 checked as well as contents.
 
 Skipped: .git, node_modules, build output folders, lock files, binary files,
-and the replica/ planning folder (where the original's name belongs). Pass
---include-replica to check that too, for example if it sits inside public/.
+and the klon/ planning folder (where the original's name belongs). Pass
+--include-klon to check that too, for example if it sits inside public/.
 """
 
 import argparse
@@ -74,7 +74,7 @@ def is_binary(path):
         return True
 
 
-def sweep(root, avoid=(), domains=(), colors=(), include_replica=False, max_size=2_000_000):
+def sweep(root, avoid=(), domains=(), colors=(), include_klon=False, max_size=2_000_000):
     pats = build_patterns(avoid, domains)
     cols = {norm_hex(c) for c in colors if HEX.fullmatch(c.strip())}
     hits = []
@@ -85,7 +85,7 @@ def sweep(root, avoid=(), domains=(), colors=(), include_replica=False, max_size
         for d in dirnames:
             if d in SKIP_DIRS:
                 continue
-            if d == "replica" and rel_dir == "." and not include_replica:
+            if d == "klon" and rel_dir == "." and not include_klon:
                 continue
             keep.append(d)
         dirnames[:] = sorted(keep)
@@ -148,7 +148,7 @@ def main(argv=None):
     ap.add_argument("--domains", default="", help="comma-separated domains")
     ap.add_argument("--colors", default="", help="comma-separated hex colours")
     ap.add_argument("--config", help="JSON with avoid / domains / colors lists")
-    ap.add_argument("--include-replica", action="store_true")
+    ap.add_argument("--include-klon", action="store_true")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args(argv)
     avoid = [x for x in args.avoid.split(",") if x.strip()]
@@ -168,7 +168,7 @@ def main(argv=None):
         print("sweep: nothing to look for. Pass --avoid with the original app's name.",
               file=sys.stderr)
         return 2
-    hits = sweep(args.root, avoid, domains, colors, args.include_replica)
+    hits = sweep(args.root, avoid, domains, colors, args.include_klon)
     print(json.dumps(hits, indent=2) if args.json else render(hits))
     return 1 if hits else 0
 

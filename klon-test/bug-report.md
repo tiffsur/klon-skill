@@ -11,6 +11,6 @@ Steps
 
 Expected: {{what should happen}}
 Actual: {{what happened}}
-Evidence: {{replica/bugs/BUG-001.png, console error text, failing test name}}
+Evidence: {{klon/bugs/BUG-001.png, console error text, failing test name}}
 Suspected cause: {{optional}}
 Status: {{open | fixed in abc1234 | won't fix: reason}}

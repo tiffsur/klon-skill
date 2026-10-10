@@ -1,13 +1,13 @@
 {
-  "name": "replica-skill",
+  "name": "klon-skill",
   "description": "Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, test it for bugs, then fix what its users hate. Free, MIT.",
   "version": "1.0.0",
   "author": {
     "name": "tiffsur",
     "url": "https://github.com/tiffsur"
   },
-  "homepage": "https://github.com/tiffsur/replica-skill",
-  "repository": "https://github.com/tiffsur/replica-skill",
+  "homepage": "https://github.com/tiffsur/klon-skill",
+  "repository": "https://github.com/tiffsur/klon-skill",
   "license": "MIT",
   "keywords": [
     "claude-code",
