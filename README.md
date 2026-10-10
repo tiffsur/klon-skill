@@ -205,8 +205,6 @@ tests/                 the tests for every tool
 Your own files live in `klon/` in your project. The skills read each
 other's.
 
-## Credit
-
 
 ## License
 
